@@ -1,0 +1,20 @@
+<h1><%= "#{session[:username]}'s inventory" %></h1>
+
+<% i = 1 %>
+<% @inventories.each do |inventory| %>
+    <strong>Item:<%= i %></strong><br>
+    <% i += 1 %>
+
+    <strong>From shop:</strong>
+    <%= inventory.user_id %>
+    <br>
+
+    <strong>Item_id:</strong>
+    <%= inventory.item_id %>
+    <br>
+
+    <strong>Item price:</strong>
+    <%= inventory.price %>
+    <br><br>
+
+<% end %>

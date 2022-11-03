@@ -1,0 +1,37 @@
+<h1><%= "#{session[:username]}'s items" %></h1><br>
+
+<table class="table" >
+    <thead class="thead-dark">        
+        <tr>
+            <th scope="col"> # </th>
+            <th scope="col"> User </th>
+            <th scope="col"> Name </th>
+            <th scope="col"> Price </th>
+            <th scope="col"> Stock </th>
+        </tr>
+    </thead>
+    <tbody>
+        <div id="items">
+            <% i = 1 %>
+            <% @items.each do |item| %>
+                <tr>
+                    <th scope = "row" ><%= i %></th>
+                    <% i = i+1 %>
+                    <td><%= item.user_id %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.price %></td>
+                    <td><%= item.stock %></td>
+                    <td><%= link_to "Edit this item", edit_item_path(item), class:"btn btn-dark mb-1" %></td>
+                    <td><%= link_to "Delete this item", item, method: :delete, class:"btn btn-dark mb-1" %></td>
+                        <%# render item %>
+                    <%# <%= link_to "Edit this item", edit_item_path(item), class:"btn btn-dark mb-1" %> 
+                    <%# <%= button_to "Delete this item", item, method: :delete, class:"btn btn-dark mb-3" %> 
+                </tr>
+
+                
+            <% end %>
+        </div>
+    </tbody>
+</table>
+<div class="mb-1"><%= link_to "Add item", new_item_path, class:"btn btn-dark" %></div>
+

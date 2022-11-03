@@ -1,0 +1,26 @@
+<h1><%= "This is #{@shop_user.name}'s shop." %></h1>
+
+<table class="table">
+    <thead class="thead-dark">        
+        <tr>
+            <th scope="col"> User </th>
+            <th scope="col"> Name </th>
+            <th scope="col"> Price </th>
+            <th scope="col"> Stock </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @items.each do |item| %>
+            <tr>
+                <td><%= item.user_id %></td>
+                <td><%= item.name %></td>
+                <td><%= item.price %></td>
+                <td><%= item.stock %></td>
+                <td><%= button_to "Buy", show_shop_path(@shop_user.id), params:{id_buy: item.id}, method: :get, class:"btn btn-dark mb-1" %></td>
+                    <%# render item %>
+                <%# <%= link_to "Edit this item", edit_item_path(item), class:"btn btn-dark mb-1" %> 
+                <%# <%= button_to "Delete this item", item, method: :delete, class:"btn btn-dark mb-3" %> 
+            </tr>
+        <% end %>
+    </tbody>
+</table>
