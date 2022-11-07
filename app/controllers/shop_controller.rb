@@ -1,5 +1,6 @@
 class ShopController < ApplicationController
     before_action :set_user
+    before_action :must_logged_in
 
 
     def show_shop

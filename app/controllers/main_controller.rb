@@ -1,4 +1,6 @@
 class MainController < ApplicationController
+  before_action :must_logged_in, only: [:inventories, :user_item]
+
   def login
   end
 
